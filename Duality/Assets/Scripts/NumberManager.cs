@@ -83,7 +83,7 @@ public class NumberManager : MonoBehaviour
         Debug.Log("Filled numbers: " + numbersFilled + "/" + MaxNumbersToSpawn);
         for(int i = numbersFilled; i < numberVals.Length; i++)
         {
-            numberVals[i] = 0;//Random.Range(1, finalNumber/2);
+            numberVals[i] = Random.Range(1, finalNumber/2);
             Debug.Log(i + "Filled numbers: " + numberVals[i]);
         }
 
