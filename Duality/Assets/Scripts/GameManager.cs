@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public SceneController SceneController;
     public HUDCanvasController HUDController;
     public ScoreManager ScoreManager;
+    public NumberManager NumberManager;
 
     void Awake() 
     {
@@ -39,6 +40,12 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject); 
         }
+    }
+
+    private void Start() 
+    {
+        int finalNumber = ScoreManager.SetUpScore();
+        NumberManager.SpawnNumbers(finalNumber);
     }
     
 }
