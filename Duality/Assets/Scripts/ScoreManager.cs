@@ -26,6 +26,15 @@ public class ScoreManager : MonoBehaviour
 
     public void UpdateCurrentNumbers(int num)
     {
+        if(num > 0) //Left side num
+        {
+            _lCurrNumber += num;
+        }
+        else //Right side num
+        {
+            _rCurrNumber += num;
+        }
+
         bool lMatch = false;
         bool rMatch = false;
         if(_lCurrNumber == _lFinalNumber)
@@ -36,8 +45,7 @@ public class ScoreManager : MonoBehaviour
         {
             rMatch = true;
         }
-        _lCurrNumber += num;
-        _rCurrNumber += num;
+
         GameManager.Instance.HUDController.UpdateCurrentNumbers(_lCurrNumber.ToString(), lMatch, _rCurrNumber.ToString(), rMatch);
     }
 

@@ -83,7 +83,7 @@ public class NumberManager : MonoBehaviour
         Debug.Log("Filled numbers: " + numbersFilled + "/" + MaxNumbersToSpawn);
         for(int i = numbersFilled; i < numberVals.Length; i++)
         {
-            numberVals[i] = Random.Range(1, finalNumber/2);
+            numberVals[i] = 0;//Random.Range(1, finalNumber/2);
             Debug.Log(i + "Filled numbers: " + numberVals[i]);
         }
 
@@ -113,16 +113,16 @@ public class NumberManager : MonoBehaviour
             if(addDuplicate)
             {
                 Debug.Log("Add duplicate: " + numberVals[i]);
-                // if(i % 2 == 0) //Duplicate the left side on the right
-                // {
-                //     Vector3 spawnPoint = new Vector3(lSideNumber.x * -1, lSideNumber.y, lSideNumber.z);
-                //     ActivateNumber(numberVals[i] * -1, spawnPoint);
-                // }
-                // else //Duplicate the right side
-                // {
-                //    Vector3 spawnPoint = new Vector3(rSideNumber.x * -1, rSideNumber.y, rSideNumber.z);
-            //        ActivateNumber(numberVals[i] , spawnPoint);
-                // }
+                if(i % 2 == 0) //Duplicate the left side on the right
+                {
+                    spawnPoint = new Vector3(lSideNumber.x * -1, lSideNumber.y, lSideNumber.z);
+                    ActivateNumber(numberVals[i] * -1, spawnPoint);
+                }
+                else //Duplicate the right side
+                {
+                   spawnPoint = new Vector3(rSideNumber.x * -1, rSideNumber.y, rSideNumber.z);
+                   ActivateNumber(numberVals[i] , spawnPoint);
+                }
             }
 
         }
